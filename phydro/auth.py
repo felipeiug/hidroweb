@@ -19,7 +19,10 @@ def generate_token(expires_in: int = 60) -> str:
         "permissions": ["read", "write"],
         "exp": int(time.time()) + expires_in,
     }
-    secret_key = os.getenv("HIDROWEB_TOKEN_SECRET_KEY", DEFAULT_TOKEN_SECRET_KEY)
+    secret_key = os.getenv("PHYDRO_TOKEN_SECRET_KEY") or os.getenv(
+        "HIDROWEB_TOKEN_SECRET_KEY",
+        DEFAULT_TOKEN_SECRET_KEY,
+    )
 
     return jwt.encode(payload, secret_key, algorithm="HS256")
 

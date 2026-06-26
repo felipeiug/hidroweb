@@ -1,4 +1,4 @@
-# hidroweb
+# phydro
 
 Biblioteca Python para consultar endpoints do Hidroweb.
 
@@ -13,13 +13,13 @@ pip install -e .
 Instale direto do GitHub:
 
 ```bash
-pip install "git+https://github.com/<seu-usuario>/hidroweb.git"
+pip install "git+https://github.com/felipeiug/phydro.git"
 ```
 
 ## Uso
 
 ```python
-from hidroweb import download_document, get_stations_list
+from phydro import download_document, get_stations_list
 
 stations = get_stations_list()
 inventory_zip = download_document(document_id=396)
@@ -29,7 +29,7 @@ inventory_zip = download_document(document_id=396)
 
 ## API publica
 
-- `hidroweb.get_stations_list`
-- `hidroweb.download_document`
-- `hidroweb.generate_token`
-- `hidroweb.get_headers`
+- `phydro.get_stations_list`
+- `phydro.download_document`
+- `phydro.generate_token`
+- `phydro.get_headers`

@@ -1,14 +1,12 @@
-from hidroweb import download_document, get_stations_list
+from phydro import get_stations_list, get_station_data
 
 
 def main() -> None:
-    stations = get_stations_list()
-    stations.to_file("teste.shp")
+    # stations = get_stations_list()
+    # stations.to_file("teste.shp")
 
-    inventory_zip = download_document(document_id=396)
-    print(stations)
-    print(inventory_zip)
-
+    station_data = get_station_data(48000)
+    print(station_data)
 
 if __name__ == "__main__":
     main()

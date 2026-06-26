@@ -8,7 +8,7 @@ import requests
 from shapely import Point
 from tqdm.auto import trange
 
-from hidroweb.auth import get_headers
+from phydro.auth import get_headers
 
 STATIONS_URL = "https://www.snirh.gov.br/hidroweb/rest/api/dadosHistoricos?size={size}&page={page}"
 
