@@ -1,6 +1,6 @@
 # phydro
 
-Biblioteca Python para consultar endpoints do Hidroweb.
+Biblioteca Python para consultar dados do Hidroweb.
 
 ## Instalacao
 
@@ -16,20 +16,38 @@ Instale direto do GitHub:
 pip install "git+https://github.com/felipeiug/phydro.git"
 ```
 
-## Uso
+## Funcoes disponiveis
+
+### `get_stations_list(page_size=1000, show_progress=True, timeout=60)`
+
+Retorna um `geopandas.GeoDataFrame` com a lista de estacoes em `EPSG:4326`.
+
+Exemplo:
 
 ```python
-from phydro import download_document, get_stations_list
+from phydro import get_stations_list
 
 stations = get_stations_list()
-inventory_zip = download_document(document_id=396)
 ```
 
-`get_stations_list()` retorna um `GeoDataFrame` em `EPSG:4326`.
+### `get_station_data(cod_estacao, timeout=60)`
+
+Baixa o ZIP da estacao em memoria, extrai os arquivos TXT e retorna um `dict[str, pandas.DataFrame]`.
+
+Cada chave do dicionario e o `tipo` extraido do nome do arquivo no formato `{codigo_estacao}_{tipo}.txt`.
+
+Exemplo:
+
+```python
+from phydro import get_station_data
+
+data = get_station_data(48000)
+
+chuvas = data["Chuvas"]
+clima = data["Clima"]
+```
 
 ## API publica
 
-- `phydro.get_stations_list`
-- `phydro.download_document`
-- `phydro.generate_token`
-- `phydro.get_headers`
+- `phydro.get_stations_list -> geopandas.GeoDataFrame`
+- `phydro.get_station_data -> dict[str, pandas.DataFrame]`
