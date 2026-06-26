@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hidroweb"
+version = "0.1.0"
+description = "Cliente Python para endpoints do Hidroweb."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Felipe" }
+]
+dependencies = [
+    "geopandas>=1.0",
+    "pandas>=2.0",
+    "PyJWT>=2.0",
+    "requests>=2.31",
+    "shapely>=2.0",
+    "tqdm>=4.66",
+]
+
+[project.urls]
+Homepage = "https://github.com/felipeiug/hidroweb"
+Repository = "https://github.com/felipeiug/hidroweb"
+
+[tool.setuptools]
+include-package-data = false
+
+[tool.setuptools.packages.find]
+include = ["hidroweb", "hidroweb.*"]
